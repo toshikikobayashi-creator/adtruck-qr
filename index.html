@@ -41,264 +41,127 @@
   }
   .card::before { top: 0; }
   .card::after { bottom: 0; }
-  .side-line {
-    position: fixed;
-    top: 3rem; bottom: 3rem;
-    width: 1px;
-    background: #2a2a4e;
-    z-index: 100;
-  }
+  .side-line { position: fixed; top: 3rem; bottom: 3rem; width: 1px; background: #2a2a4e; z-index: 100; }
   .side-line.left { left: 1.2rem; }
   .side-line.right { right: 1.2rem; }
-  .diamond {
-    position: fixed;
-    width: 12px; height: 12px;
-    background: var(--accent);
-    transform: rotate(45deg);
-    z-index: 100;
-  }
+  .diamond { position: fixed; width: 12px; height: 12px; background: var(--accent); transform: rotate(45deg); z-index: 100; }
   .diamond.tl { top: 1.5rem; left: 1.5rem; }
   .diamond.tr { top: 1.5rem; right: 1.5rem; }
   .diamond.bl { bottom: 1.5rem; left: 1.5rem; }
   .diamond.br { bottom: 1.5rem; right: 1.5rem; }
-  .card {
-    max-width: 480px;
-    width: 100%;
-    position: relative;
-    padding: 2.5rem 1.5rem 2rem;
-    text-align: center;
-  }
+  .card { max-width: 480px; width: 100%; position: relative; padding: 2.5rem 1.5rem 2rem; text-align: center; }
   .screen { display: none; }
   .screen.active { display: block; }
-  .intro-title {
-    font-size: 1.15rem;
-    font-weight: 700;
-    margin-bottom: 0.2rem;
-    opacity: 0;
-    animation: fadeUp 0.6s ease forwards 0.2s;
-  }
-  .intro-main {
-    font-size: 1.7rem;
-    font-weight: 900;
-    color: var(--gold);
-    margin-bottom: 1.5rem;
-    opacity: 0;
-    animation: fadeUp 0.6s ease forwards 0.4s;
-  }
-  .intro-desc {
-    font-size: 1rem;
-    color: var(--gray);
-    margin-bottom: 2rem;
-    line-height: 1.8;
-    opacity: 0;
-    animation: fadeUp 0.6s ease forwards 0.6s;
-  }
+
+  .intro-title { font-size: 1.15rem; font-weight: 700; margin-bottom: 0.2rem; opacity: 0; animation: fadeUp 0.6s ease forwards 0.2s; }
+  .intro-main { font-size: 1.7rem; font-weight: 900; color: var(--gold); margin-bottom: 1.5rem; opacity: 0; animation: fadeUp 0.6s ease forwards 0.4s; }
+  .intro-desc { font-size: 1rem; color: var(--gray); margin-bottom: 2rem; line-height: 1.8; opacity: 0; animation: fadeUp 0.6s ease forwards 0.6s; }
   .lottery-btn {
-    display: inline-block;
-    background: linear-gradient(135deg, var(--accent), #ff6b81);
-    color: #fff;
-    font-family: 'Noto Sans JP', sans-serif;
-    font-size: 1.3rem;
-    font-weight: 900;
-    border: none;
-    border-radius: 60px;
-    padding: 1rem 2.5rem;
-    cursor: pointer;
-    position: relative;
-    overflow: hidden;
-    transition: transform 0.2s;
-    opacity: 0;
+    display: inline-block; background: linear-gradient(135deg, var(--accent), #ff6b81); color: #fff;
+    font-family: 'Noto Sans JP', sans-serif; font-size: 1.3rem; font-weight: 900; border: none;
+    border-radius: 60px; padding: 1rem 2.5rem; cursor: pointer; position: relative; overflow: hidden;
+    transition: transform 0.2s; opacity: 0;
     animation: fadeUp 0.6s ease forwards 0.8s, pulse 2s ease-in-out infinite 1.4s;
     -webkit-tap-highlight-color: transparent;
   }
   .lottery-btn:active { transform: scale(0.95); }
   .lottery-btn::after {
-    content: '';
-    position: absolute;
-    top: -50%; left: -50%;
-    width: 200%; height: 200%;
+    content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
     background: linear-gradient(45deg, transparent 40%, rgba(255,255,255,0.2) 50%, transparent 60%);
     animation: shine 3s ease-in-out infinite;
   }
-  .spin-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 50vh;
-  }
-  .spin-text {
-    font-size: 1.3rem;
-    font-weight: 700;
-    color: var(--gray);
-    margin-bottom: 2rem;
-    animation: blink 0.6s ease-in-out infinite;
-  }
-  .slot-display {
-    font-size: 4rem;
-    font-weight: 900;
-    width: 120px;
-    height: 80px;
-    line-height: 80px;
-    border: 3px solid var(--accent);
-    border-radius: 16px;
-    background: var(--box-bg);
-    overflow: hidden;
-    position: relative;
-  }
-  .slot-number {
-    position: absolute;
+
+  .spin-container { display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 50vh; }
+  .spin-text { font-size: 1.3rem; font-weight: 700; color: var(--gray); margin-bottom: 2rem; animation: blink 0.6s ease-in-out infinite; }
+  .slot-display { font-size: 4rem; font-weight: 900; width: 120px; height: 80px; line-height: 80px; border: 3px solid var(--accent); border-radius: 16px; background: var(--box-bg); overflow: hidden; position: relative; }
+  .slot-number { position: absolute; width: 100%; text-align: center; color: var(--white); }
+
+  /* === Car Animation Area === */
+  .car-scene {
     width: 100%;
-    text-align: center;
-    color: var(--white);
-  }
-  .win-title {
-    font-size: 2.5rem;
-    font-weight: 900;
-    color: var(--gold);
-    margin-bottom: 0.5rem;
-    opacity: 0;
-    animation: bounceIn 0.8s ease forwards 0.2s;
-    text-shadow: 0 0 30px rgba(255,215,0,0.5);
-  }
-  .win-sub {
-    font-size: 1.1rem;
-    margin-bottom: 2rem;
-    opacity: 0;
-    animation: fadeUp 0.6s ease forwards 0.6s;
-  }
-  .win-prize {
-    display: inline-block;
-    background: linear-gradient(135deg, #ffd700, #ffaa00);
-    color: #1a1a2e;
-    font-size: 1.2rem;
-    font-weight: 900;
-    border-radius: 14px;
-    padding: 1rem 2rem;
-    margin-bottom: 1.5rem;
-    opacity: 0;
-    animation: fadeUp 0.6s ease forwards 0.8s;
-  }
-  .win-action {
-    font-size: 1.05rem;
-    font-weight: 700;
-    line-height: 1.8;
-    margin-bottom: 1.5rem;
-    opacity: 0;
-    animation: fadeUp 0.6s ease forwards 1.0s;
-  }
-  .lose-title {
-    font-size: 1.8rem;
-    font-weight: 900;
-    color: var(--accent);
-    margin-bottom: 0.5rem;
-    opacity: 0;
-    animation: fadeUp 0.6s ease forwards 0.2s;
-  }
-  .lose-sub {
-    font-size: 1rem;
-    color: var(--gray);
-    margin-bottom: 2rem;
-    line-height: 1.8;
-    opacity: 0;
-    animation: fadeUp 0.6s ease forwards 0.4s;
-  }
-  .highlight-box {
-    display: inline-block;
-    background: var(--box-bg);
-    border: 2.5px solid var(--accent);
-    border-radius: 14px;
-    padding: 0.8rem 1.5rem;
-    margin-bottom: 1.5rem;
-    opacity: 0;
-    animation: fadeUp 0.6s ease forwards 0.6s;
-  }
-  .highlight-box .text {
-    font-size: 1.3rem;
-    font-weight: 900;
-    color: var(--accent);
-    text-shadow: 0 0 20px rgba(233,69,96,0.3);
-  }
-  .lose-action {
-    font-size: 1.05rem;
-    font-weight: 700;
-    line-height: 1.8;
-    margin-bottom: 1.5rem;
-    opacity: 0;
-    animation: fadeUp 0.6s ease forwards 0.8s;
-  }
-  .divider {
+    height: 160px;
     position: relative;
-    width: 180px;
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+  }
+  .car-road {
+    position: absolute;
+    bottom: 18px;
+    left: 0; right: 0;
     height: 2px;
     background: #3c3c66;
-    margin: 0 auto 1.5rem;
-    opacity: 0;
-    animation: fadeUp 0.6s ease forwards 1.2s;
   }
-  .divider::after {
+  .car-road::before {
     content: '';
     position: absolute;
-    top: 50%; left: 50%;
-    transform: translate(-50%, -50%);
-    width: 8px; height: 8px;
-    border-radius: 50%;
-    background: var(--accent);
+    top: -1px;
+    left: 0; right: 0;
+    height: 1px;
+    background: repeating-linear-gradient(90deg, #555 0, #555 20px, transparent 20px, transparent 40px);
   }
-  .company {
-    font-family: 'Noto Serif JP', serif;
-    font-size: 1rem;
-    font-weight: 600;
-    color: var(--gray);
-    letter-spacing: 0.15em;
-    opacity: 0;
-    animation: fadeUp 0.6s ease forwards 1.4s;
-  }
-  .confetti-container {
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    pointer-events: none;
-    z-index: 99;
-    overflow: hidden;
-  }
-  .confetti-piece {
+  .car-wrapper {
     position: absolute;
-    top: -20px;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(calc(-50% + 600px));
+    animation: carDriveIn 1.8s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
+  }
+  .car-wrapper .wheel {
+    animation: wheelSpin 0.15s linear 0s 12;
+  }
+  .car-headlight-glow {
     opacity: 0;
+    animation: headlightFlash 0.4s ease-in-out 2.0s forwards;
   }
-  .confetti-piece.active {
-    animation: confettiFall 3s ease-in forwards;
+
+  @keyframes carDriveIn {
+    0% { transform: translateX(calc(-50% + 600px)); }
+    70% { transform: translateX(calc(-50% + 10px)); }
+    85% { transform: translateX(calc(-50% - 5px)); }
+    100% { transform: translateX(-50%); }
   }
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+  @keyframes wheelSpin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
   }
-  @keyframes pulse {
-    0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(233,69,96,0.4); }
-    50% { transform: scale(1.03); box-shadow: 0 0 20px 5px rgba(233,69,96,0.2); }
+  @keyframes headlightFlash {
+    0% { opacity: 0; }
+    50% { opacity: 1; }
+    100% { opacity: 0.7; }
   }
-  @keyframes shine {
-    0%, 100% { transform: translateX(-100%) rotate(45deg); }
-    50% { transform: translateX(100%) rotate(45deg); }
+
+  .win-content { opacity: 0; animation: fadeUp 0.8s ease forwards 2.2s; }
+  .win-title { font-size: 2.2rem; font-weight: 900; color: var(--gold); margin-bottom: 0.5rem; text-shadow: 0 0 30px rgba(255,215,0,0.5); }
+  .win-sub { font-size: 1.1rem; margin-bottom: 1.5rem; }
+  .win-prize {
+    display: inline-block; background: linear-gradient(135deg, #ffd700, #ffaa00); color: #1a1a2e;
+    font-size: 1.1rem; font-weight: 900; border-radius: 14px; padding: 1rem 1.8rem; margin-bottom: 1.2rem;
   }
-  @keyframes blink {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.3; }
-  }
-  @keyframes bounceIn {
-    0% { opacity: 0; transform: scale(0.3); }
-    50% { opacity: 1; transform: scale(1.1); }
-    70% { transform: scale(0.95); }
-    100% { opacity: 1; transform: scale(1); }
-  }
-  @keyframes confettiFall {
-    0% { opacity: 1; transform: translateY(0) rotate(0deg); }
-    100% { opacity: 0; transform: translateY(100vh) rotate(720deg); }
-  }
+  .win-action { font-size: 1rem; font-weight: 700; line-height: 1.8; margin-bottom: 1.2rem; }
+
+  .lose-title { font-size: 1.8rem; font-weight: 900; color: var(--accent); margin-bottom: 0.5rem; opacity: 0; animation: fadeUp 0.6s ease forwards 0.2s; }
+  .lose-sub { font-size: 1rem; color: var(--gray); margin-bottom: 2rem; line-height: 1.8; opacity: 0; animation: fadeUp 0.6s ease forwards 0.4s; }
+  .highlight-box { display: inline-block; background: var(--box-bg); border: 2.5px solid var(--accent); border-radius: 14px; padding: 0.8rem 1.5rem; margin-bottom: 1.5rem; opacity: 0; animation: fadeUp 0.6s ease forwards 0.6s; }
+  .highlight-box .text { font-size: 1.3rem; font-weight: 900; color: var(--accent); text-shadow: 0 0 20px rgba(233,69,96,0.3); }
+  .lose-action { font-size: 1.05rem; font-weight: 700; line-height: 1.8; margin-bottom: 1.5rem; opacity: 0; animation: fadeUp 0.6s ease forwards 0.8s; }
+
+  .divider { position: relative; width: 180px; height: 2px; background: #3c3c66; margin: 0 auto 1.2rem; }
+  .divider::after { content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 8px; height: 8px; border-radius: 50%; background: var(--accent); }
+  .company { font-family: 'Noto Serif JP', serif; font-size: 1rem; font-weight: 600; color: var(--gray); letter-spacing: 0.15em; }
+
+  .confetti-container { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 99; overflow: hidden; }
+  .confetti-piece { position: absolute; top: -20px; opacity: 0; }
+  .confetti-piece.active { animation: confettiFall 3s ease-in forwards; }
+
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.03); box-shadow: 0 0 20px 5px rgba(233,69,96,0.2); } }
+  @keyframes shine { 0%, 100% { transform: translateX(-100%) rotate(45deg); } 50% { transform: translateX(100%) rotate(45deg); } }
+  @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+  @keyframes confettiFall { 0% { opacity: 1; transform: translateY(0) rotate(0deg); } 100% { opacity: 0; transform: translateY(100vh) rotate(720deg); } }
+
   @media (max-width: 400px) {
     .intro-main { font-size: 1.4rem; }
-    .win-title { font-size: 2rem; }
+    .win-title { font-size: 1.8rem; }
     .lottery-btn { font-size: 1.1rem; padding: 0.9rem 2rem; }
   }
 </style>
@@ -312,58 +175,132 @@
   <div class="diamond br"></div>
   <div class="confetti-container" id="confetti"></div>
   <div class="card">
+    <!-- Intro -->
     <div class="screen active" id="screen-intro">
       <p class="intro-title">テストにご協力いただき</p>
       <p class="intro-main">ありがとうございます！</p>
-      <p class="intro-desc">
-        QRコードを読み取っていただいた<br>
-        あなたに、特別なチャンスを<br>
-        ご用意しました！
-      </p>
-      <button class="lottery-btn" id="lotteryBtn" onclick="startLottery()">
-        🎰 抽選スタート！
-      </button>
+      <p class="intro-desc">QRコードを読み取っていただいた<br>あなたに、特別なチャンスを<br>ご用意しました！</p>
+      <button class="lottery-btn" id="lotteryBtn" onclick="startLottery()">🎰 抽選スタート！</button>
     </div>
+    <!-- Spin -->
     <div class="screen" id="screen-spin">
       <div class="spin-container">
         <p class="spin-text">抽選中…</p>
-        <div class="slot-display">
-          <div class="slot-number" id="slotNumber">?</div>
+        <div class="slot-display"><div class="slot-number" id="slotNumber">?</div></div>
+      </div>
+    </div>
+    <!-- Win -->
+    <div class="screen" id="screen-win">
+      <div class="car-scene">
+        <div class="car-road"></div>
+        <div class="car-wrapper">
+          <!-- Lexus-style luxury sedan SVG -->
+          <svg width="220" height="90" viewBox="0 0 220 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Shadow -->
+            <ellipse cx="110" cy="85" rx="100" ry="5" fill="rgba(0,0,0,0.3)"/>
+            <!-- Body lower -->
+            <path d="M20 55 L25 68 L195 68 L200 55 Z" fill="#1a1a2e" stroke="#2a2a4e" stroke-width="0.5"/>
+            <!-- Body main -->
+            <path d="M15 55 Q15 42 30 40 L70 38 Q80 20 105 18 L150 18 Q170 18 175 35 L195 40 Q205 42 205 55 Z" fill="url(#carGrad)" stroke="#3a3a5e" stroke-width="0.5"/>
+            <!-- Roof line highlight -->
+            <path d="M82 20 Q90 14 110 13 L148 13 Q158 14 165 20" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+            <!-- Windows -->
+            <path d="M78 37 L85 22 L120 20 L120 37 Z" fill="#0a0a1a" stroke="#4a4a6e" stroke-width="0.5" opacity="0.9"/>
+            <path d="M123 37 L123 20 L155 20 Q165 22 170 37 Z" fill="#0a0a1a" stroke="#4a4a6e" stroke-width="0.5" opacity="0.9"/>
+            <!-- Window reflection -->
+            <path d="M80 36 L86 23 L100 21 L100 36 Z" fill="rgba(100,130,200,0.12)"/>
+            <path d="M125 36 L125 21 L145 21 Q152 23 156 36 Z" fill="rgba(100,130,200,0.12)"/>
+            <!-- Door line -->
+            <line x1="121" y1="37" x2="121" y2="62" stroke="#2a2a4e" stroke-width="0.5"/>
+            <!-- Door handle -->
+            <rect x="130" y="47" width="12" height="2" rx="1" fill="#4a4a6e"/>
+            <!-- Front grille (Lexus spindle-style) -->
+            <path d="M195 42 Q208 44 210 52 Q208 60 195 62" fill="#1a1a2e" stroke="#3a3a5e" stroke-width="0.5"/>
+            <path d="M197 45 Q205 47 206 52 Q205 57 197 59" fill="none" stroke="#2a2a3e" stroke-width="0.5"/>
+            <path d="M198 48 Q203 49 203 52 Q203 55 198 56" fill="none" stroke="#2a2a3e" stroke-width="0.5"/>
+            <!-- Headlight -->
+            <path d="M198 42 L210 44 L210 50 L198 48 Z" fill="#e8e8ff" opacity="0.9"/>
+            <path d="M198 42 L210 44 L210 47 L198 45 Z" fill="#ffffcc"/>
+            <!-- Headlight glow -->
+            <circle class="car-headlight-glow" cx="215" cy="46" r="15" fill="url(#glowGrad)"/>
+            <!-- Tail light -->
+            <path d="M22 42 L15 44 L15 50 L22 48 Z" fill="#e94560" opacity="0.8"/>
+            <rect x="15" y="50" width="7" height="3" rx="1" fill="#e94560" opacity="0.6"/>
+            <!-- Rear bumper -->
+            <path d="M15 55 Q10 56 10 60 Q10 64 15 65 L25 65 L25 55 Z" fill="#1a1a2e" stroke="#2a2a4e" stroke-width="0.5"/>
+            <!-- Front bumper -->
+            <path d="M195 55 Q210 56 212 60 Q210 64 195 65 L195 55 Z" fill="#1a1a2e" stroke="#2a2a4e" stroke-width="0.5"/>
+            <!-- Front fog light -->
+            <rect x="205" y="57" width="4" height="2" rx="1" fill="#ffffcc" opacity="0.6"/>
+            <!-- Side skirt line -->
+            <line x1="30" y1="64" x2="190" y2="64" stroke="#2a2a4e" stroke-width="0.5"/>
+            <!-- Wheels -->
+            <g class="wheel" transform-origin="55 70">
+              <circle cx="55" cy="70" r="15" fill="#111"/>
+              <circle cx="55" cy="70" r="13" fill="#222" stroke="#444" stroke-width="1"/>
+              <circle cx="55" cy="70" r="4" fill="#555"/>
+              <!-- Spokes -->
+              <line x1="55" y1="58" x2="55" y2="65" stroke="#444" stroke-width="1.5"/>
+              <line x1="55" y1="75" x2="55" y2="82" stroke="#444" stroke-width="1.5"/>
+              <line x1="43" y1="70" x2="50" y2="70" stroke="#444" stroke-width="1.5"/>
+              <line x1="60" y1="70" x2="67" y2="70" stroke="#444" stroke-width="1.5"/>
+              <line x1="47" y1="62" x2="51" y2="66" stroke="#444" stroke-width="1.5"/>
+              <line x1="59" y1="74" x2="63" y2="78" stroke="#444" stroke-width="1.5"/>
+              <line x1="47" y1="78" x2="51" y2="74" stroke="#444" stroke-width="1.5"/>
+              <line x1="59" y1="66" x2="63" y2="62" stroke="#444" stroke-width="1.5"/>
+            </g>
+            <g class="wheel" transform-origin="170 70">
+              <circle cx="170" cy="70" r="15" fill="#111"/>
+              <circle cx="170" cy="70" r="13" fill="#222" stroke="#444" stroke-width="1"/>
+              <circle cx="170" cy="70" r="4" fill="#555"/>
+              <line x1="170" y1="58" x2="170" y2="65" stroke="#444" stroke-width="1.5"/>
+              <line x1="170" y1="75" x2="170" y2="82" stroke="#444" stroke-width="1.5"/>
+              <line x1="158" y1="70" x2="165" y2="70" stroke="#444" stroke-width="1.5"/>
+              <line x1="175" y1="70" x2="182" y2="70" stroke="#444" stroke-width="1.5"/>
+              <line x1="162" y1="62" x2="166" y2="66" stroke="#444" stroke-width="1.5"/>
+              <line x1="174" y1="74" x2="178" y2="78" stroke="#444" stroke-width="1.5"/>
+              <line x1="162" y1="78" x2="166" y2="74" stroke="#444" stroke-width="1.5"/>
+              <line x1="174" y1="66" x2="178" y2="62" stroke="#444" stroke-width="1.5"/>
+            </g>
+            <!-- LEXUS badge -->
+            <rect x="100" y="58" width="28" height="6" rx="2" fill="#2a2a4e"/>
+            <text x="114" y="63" text-anchor="middle" fill="#8888aa" font-size="5" font-family="Arial" font-weight="bold" letter-spacing="1">LEXUS</text>
+            <!-- Gradient defs -->
+            <defs>
+              <linearGradient id="carGrad" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#2c2c4e"/>
+                <stop offset="40%" stop-color="#1e1e3a"/>
+                <stop offset="100%" stop-color="#141428"/>
+              </linearGradient>
+              <radialGradient id="glowGrad">
+                <stop offset="0%" stop-color="rgba(255,255,200,0.6)"/>
+                <stop offset="100%" stop-color="rgba(255,255,200,0)"/>
+              </radialGradient>
+            </defs>
+          </svg>
         </div>
       </div>
-    </div>
-    <div class="screen" id="screen-win">
-      <p class="win-title">🎊 大当たり！🎊</p>
-      <p class="win-sub">おめでとうございます！</p>
-      <div class="win-prize">
-        🚗 私、宮本がご自宅まで<br>お送りさせていただきます！
+      <div class="win-content">
+        <p class="win-title">🎊 大当たり！🎊</p>
+        <p class="win-sub">おめでとうございます！</p>
+        <div class="win-prize">🚗 私、宮本がご自宅まで<br>お送りさせていただきます！</div>
+        <p class="win-action">この画面をアドトラック代表・宮本に<br>お見せください。</p>
+        <div class="divider"></div>
+        <p class="company">株式会社アドトラック</p>
       </div>
-      <p class="win-action">
-        この画面をアドトラック代表・宮本に<br>お見せください。
-      </p>
-      <div class="divider"></div>
-      <p class="company">株式会社アドトラック</p>
     </div>
+    <!-- Lose -->
     <div class="screen" id="screen-lose">
       <p class="lose-title">残念…！ハズレ</p>
-      <p class="lose-sub">
-        でも、QRコードを読み取った<br>
-        その勇気ある行動に敬意を表して…
-      </p>
-      <div class="highlight-box">
-        <span class="text">「QRコード見ました！」</span>
-      </div>
-      <p class="lose-action">
-        とアドトラック代表・宮本に<br>
-        お声がけいただければ<br>
-        良いことがあるかも…？
-      </p>
+      <p class="lose-sub">でも、QRコードを読み取った<br>その勇気ある行動に敬意を表して…</p>
+      <div class="highlight-box"><span class="text">「QRコード見ました！」</span></div>
+      <p class="lose-action">とアドトラック代表・宮本に<br>お声がけいただければ<br>良いことがあるかも…？</p>
       <div class="divider"></div>
       <p class="company">株式会社アドトラック</p>
     </div>
   </div>
 <script>
-function startLottery(){var b=document.getElementById('lotteryBtn');b.disabled=true;b.style.opacity='0.5';var w=Math.floor(Math.random()*5)===0;showScreen('screen-spin');var s=document.getElementById('slotNumber');var c=0;var t=setInterval(function(){s.textContent=Math.floor(Math.random()*10);c++;if(c>20){clearInterval(t);var sc=0;var st=setInterval(function(){s.textContent=Math.floor(Math.random()*10);sc++;if(sc>6){clearInterval(st);s.textContent=w?'\u2605':'\u00d7';s.style.color=w?'var(--gold)':'var(--accent)';setTimeout(function(){if(w){showScreen('screen-win');launchConfetti();}else{showScreen('screen-lose');}},800);}},200);}},80);}
+function startLottery(){var b=document.getElementById('lotteryBtn');b.disabled=true;b.style.opacity='0.5';var w=Math.floor(Math.random()*5)===0;showScreen('screen-spin');var s=document.getElementById('slotNumber');var c=0;var t=setInterval(function(){s.textContent=Math.floor(Math.random()*10);c++;if(c>20){clearInterval(t);var sc=0;var st=setInterval(function(){s.textContent=Math.floor(Math.random()*10);sc++;if(sc>6){clearInterval(st);s.textContent=w?'\u2605':'\u00d7';s.style.color=w?'var(--gold)':'var(--accent)';setTimeout(function(){if(w){showScreen('screen-win');setTimeout(launchConfetti,1800);}else{showScreen('screen-lose');}},800);}},200);}},80);}
 function showScreen(id){var ss=document.querySelectorAll('.screen');for(var i=0;i<ss.length;i++){ss[i].classList.remove('active');}document.getElementById(id).classList.add('active');}
 function launchConfetti(){var co=document.getElementById('confetti');var cl=['#e94560','#ffd700','#00e676','#4fc3f7','#ff6b81','#fff'];for(var i=0;i<80;i++){var p=document.createElement('div');p.className='confetti-piece';p.style.left=Math.random()*100+'%';p.style.width=(Math.random()*8+6)+'px';p.style.height=(Math.random()*8+6)+'px';p.style.background=cl[Math.floor(Math.random()*cl.length)];p.style.borderRadius=Math.random()>0.5?'50%':'2px';p.style.animationDelay=(Math.random()*1.5)+'s';p.style.animationDuration=(Math.random()*2+2)+'s';co.appendChild(p);setTimeout((function(x){return function(){x.classList.add('active');};})(p),50);}}
 </script>
