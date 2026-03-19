@@ -120,13 +120,6 @@
     background: linear-gradient(45deg, transparent 40%, rgba(255,255,255,0.2) 50%, transparent 60%);
     animation: shine 3s ease-in-out infinite;
   }
-  .lottery-hint {
-    font-size: 0.85rem;
-    color: #666;
-    margin-top: 1rem;
-    opacity: 0;
-    animation: fadeUp 0.6s ease forwards 1.0s;
-  }
   .spin-container {
     display: flex;
     flex-direction: column;
@@ -330,7 +323,6 @@
       <button class="lottery-btn" id="lotteryBtn" onclick="startLottery()">
         🎰 抽選スタート！
       </button>
-      <p class="lottery-hint">※ 当選確率 10%</p>
     </div>
     <div class="screen" id="screen-spin">
       <div class="spin-container">
@@ -344,7 +336,7 @@
       <p class="win-title">🎊 大当たり！🎊</p>
       <p class="win-sub">おめでとうございます！</p>
       <div class="win-prize">
-        🎁 お好きな飲み物またはお菓子を<br>どちらか一つプレゼント！
+        🚗 私、宮本がご自宅まで<br>お送りさせていただきます！
       </div>
       <p class="win-action">
         この画面をアドトラック代表・宮本に<br>お見せください。
@@ -371,7 +363,7 @@
     </div>
   </div>
 <script>
-function startLottery(){var b=document.getElementById('lotteryBtn');b.disabled=true;b.style.opacity='0.5';var w=Math.floor(Math.random()*10)===0;showScreen('screen-spin');var s=document.getElementById('slotNumber');var c=0;var t=setInterval(function(){s.textContent=Math.floor(Math.random()*10);c++;if(c>20){clearInterval(t);var sc=0;var st=setInterval(function(){s.textContent=Math.floor(Math.random()*10);sc++;if(sc>6){clearInterval(st);s.textContent=w?'\u2605':'\u00d7';s.style.color=w?'var(--gold)':'var(--accent)';setTimeout(function(){if(w){showScreen('screen-win');launchConfetti();}else{showScreen('screen-lose');}},800);}},200);}},80);}
+function startLottery(){var b=document.getElementById('lotteryBtn');b.disabled=true;b.style.opacity='0.5';var w=Math.floor(Math.random()*5)===0;showScreen('screen-spin');var s=document.getElementById('slotNumber');var c=0;var t=setInterval(function(){s.textContent=Math.floor(Math.random()*10);c++;if(c>20){clearInterval(t);var sc=0;var st=setInterval(function(){s.textContent=Math.floor(Math.random()*10);sc++;if(sc>6){clearInterval(st);s.textContent=w?'\u2605':'\u00d7';s.style.color=w?'var(--gold)':'var(--accent)';setTimeout(function(){if(w){showScreen('screen-win');launchConfetti();}else{showScreen('screen-lose');}},800);}},200);}},80);}
 function showScreen(id){var ss=document.querySelectorAll('.screen');for(var i=0;i<ss.length;i++){ss[i].classList.remove('active');}document.getElementById(id).classList.add('active');}
 function launchConfetti(){var co=document.getElementById('confetti');var cl=['#e94560','#ffd700','#00e676','#4fc3f7','#ff6b81','#fff'];for(var i=0;i<80;i++){var p=document.createElement('div');p.className='confetti-piece';p.style.left=Math.random()*100+'%';p.style.width=(Math.random()*8+6)+'px';p.style.height=(Math.random()*8+6)+'px';p.style.background=cl[Math.floor(Math.random()*cl.length)];p.style.borderRadius=Math.random()>0.5?'50%':'2px';p.style.animationDelay=(Math.random()*1.5)+'s';p.style.animationDuration=(Math.random()*2+2)+'s';co.appendChild(p);setTimeout((function(x){return function(){x.classList.add('active');};})(p),50);}}
 </script>
